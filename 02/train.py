@@ -30,6 +30,7 @@ def run(data_path):
         
         rmse = mean_squared_error(y_valid, y_pred, squared=False)
         mlflow.sklearn.log_model(rf, artifact_path='artifact')
+        mlflow.log_metric("RMSE", rmse)
         print(f"default artifacts URI: '{mlflow.get_artifact_uri()}'")
 
 
